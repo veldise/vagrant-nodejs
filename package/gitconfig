@@ -1,0 +1,27 @@
+[alias]
+    stat = status
+    co = checkout
+    vd = difftool
+    vdiff = difftool
+    up = fetch upstream
+    rb = rebase origin/master
+    ss = stash
+    sp = stash pop
+    bh = branch
+    lg = log --abbrev-commit --color --date=relative --graph --pretty=format:'%C(red)%h%Creset -%C(blue)%d%Creset %s %Cgreen[%cr] %C(bold blue)<%an>%Creset'
+    lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
+    lg3 = log --graph --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %an%C(reset)' --abbrev-commit
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+[format]
+    pretty = format:%C(red)%h%Creset %Cgreen[%cr] %C(bold blue)<%an>%Creset %n       %C(blue)%d%Creset %s
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[color]
+    diff = auto
+    interactive = auto
+    status = auto
+    branch = auto
+[core]
+    autocrlf = true
