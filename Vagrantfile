@@ -1,12 +1,13 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
-
 VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # base box
     config.vm.box = "CentOS-6.3-x86_64-minimal"
     config.vm.box_url = "https://dl.dropbox.com/u/7225008/Vagrant/CentOS-6.3-x86_64-minimal.box"
+    # config.vm.box = "CentOS-6.4-x86_64-minimal"
+    # config.vm.box_url = "https://dl.dropboxusercontent.com/s/s1r8c1hpt5ow9f2/CentOS-6.4-x86_64-minimal.box"
 
     # port forward
     config.vm.network :forwarded_port, guest: 8080, host: 8080
