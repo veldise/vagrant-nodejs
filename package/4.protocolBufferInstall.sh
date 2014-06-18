@@ -1,13 +1,15 @@
 #!/bin/sh
 echo "- Protobuf Install Start"
 pb_ver=`protoc --version`
-if [ "${pb_ver}" == "libprotoc 2.5.0" ]; then
-	echo "alreay Protobuf v2.5.0"
+INSTALL_VER="2.5.0"
+
+if [ "${pb_ver}" == "libprotoc "$INSTALL_VER ]; then
+	echo "alreay Protobuf v"$INSTALL_VER
 else
-	wget https://protobuf.googlecode.com/files/protobuf-2.5.0.tar.gz
-	tar xfzp protobuf-2.5.0.tar.gz
-	cd protobuf-2.5.0
+	wget https://protobuf.googlecode.com/files/protobuf-$INSTALL_VER.tar.gz
+	tar xfzp protobuf-$INSTALL_VER.tar.gz
+	cd protobuf-$INSTALL_VER
 	./configure && make && make install
 	cd ..
-	rm -rf protobuf-2.5.0*
+	rm -rf protobuf-$INSTALL_VER*
 fi

@@ -1,15 +1,17 @@
 #!/bin/sh
 echo "- Node.js Install Start"
 node_ver=`node -v`
-if [ "${node_ver}" == "v0.10.26" ]; then
-	echo "alreay Node.js v0.10.26"
+INSTALL_VER="v0.10.29"
+
+if [ "${node_ver}" == $INSTALL_VER ]; then
+	echo "alreay Node.js "$INSTALL_VER
 else
-	wget http://nodejs.org/dist/v0.10.26/node-v0.10.26.tar.gz
-	tar xfzp node-v0.10.26.tar.gz
-	cd node-v0.10.26
+	wget http://nodejs.org/dist/$INSTALL_VER/node-$INSTALL_VER.tar.gz
+	tar xfzp node-$INSTALL_VER.tar.gz
+	cd node-$INSTALL_VER
 	./configure && make && make install
 	cd ..
-	rm -rf node-v0.10.26*
+	rm -rf node-$INSTALL_VER*
 
 	echo "- Node packages Install Start"
 	npm install -g async underscore colors
