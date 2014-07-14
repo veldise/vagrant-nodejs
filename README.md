@@ -1,6 +1,6 @@
 Node.js 개발 환경 공유
 ======================
-* 아래 작업은 Windows 7 및 Windows 8 환경에서 수행되었습니다.
+* 아래 작업은 Windows 7 환경에서 수행되었습니다.
 
 * Node.js 개발환경 구축은 다음과 같은 순서로 진행됩니다.
     1. VirtualBox, Vagrant 설치
@@ -42,7 +42,13 @@ Node.js 개발 환경 공유
     * > ```cd envdev```
     * > ```vagrant up```
     * 정상적으로 수행되면 VirtualBox에 가상머신이 생성됩니다. 
-  
+
+### Windows 8 사용자의 경우
+* 현재 Windows 8 사용자의 경우 provision 스크립트가 실행되지 않는 문제가 있습니다.
+* 이 때에는 다음과 같이 나누어 실행하기 바랍니다.
+  * > ```vagrant up --no-provision```
+  * > ```vagrant provision```
+
 ## 서버 실행 및 확인
 * vagrant up으로 생성한 가상머신(centos63-nodejs)에 로그인합니다.
     * ssh 로그인 정보
