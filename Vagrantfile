@@ -20,7 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # VM configure
     config.vm.provider "virtualbox" do |vb|
-        vb.name = "centos63-nodejs"
+        vb.name = "centos64-nodejs"
         vb.customize ["modifyvm", :id, "--memory", 512]
         vb.customize ["modifyvm", :id, "--cpus", 1]
     end
