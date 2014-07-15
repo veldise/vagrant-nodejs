@@ -1,6 +1,9 @@
 Node.js 개발 환경 공유
 ======================
-* 아래 작업은 Windows 7 환경에서 수행되었습니다.
+* 아래 작업은 다음과 같은 환경에서 수행되었습니다.
+  * Windows 7
+  * Windows 8.0
+  * Windows 8.1
 
 * Node.js 개발환경 구축은 다음과 같은 순서로 진행됩니다.
     1. VirtualBox, Vagrant 설치
@@ -43,12 +46,6 @@ Node.js 개발 환경 공유
     * > ```vagrant up```
     * 정상적으로 수행되면 VirtualBox에 가상머신이 생성됩니다. 
 
-### Windows 8 사용자의 경우
-* 현재 Windows 8 사용자의 경우 provision 스크립트가 실행되지 않는 문제가 있습니다.
-* 이 때에는 다음과 같이 나누어 실행하기 바랍니다.
-  * > ```vagrant up --no-provision```
-  * > ```vagrant provision```
-
 ## 서버 실행 및 확인
 * vagrant up으로 생성한 가상머신(centos63-nodejs)에 로그인합니다.
     * ssh 로그인 정보
@@ -74,3 +71,18 @@ Node.js 개발 환경 공유
     * > <code>vagrant up</code>
     * '--no-provision' 옵션으로 실행하면 privisioning을 수행하지 않습니다.
     * > <code>vagrant up --no-privision</code>
+
+## 기타
+Windows 8.1에서는 shared folder가 정상동작하지 않는 경우가 있습니다.  
+이 경우에는 provisioning만을 vagrant로 하고,  
+VM의 실행/사용/종료는 vagrant를 쓰지 말고 VirtualBox로만 사용하기 바랍니다.  
+  
+이 때 shared folder는 다음과 같이 구성합니다.  
+1. 머신 설정이나 장치 > 공유폴더에서 공유할 폴더 추가/생성
+2. 해당 머신의 console에서 다음과 같은 명령어 입력 (게스트 확장 설치 필요)
+```sudo mount -t vboxsf <VM 공유폴더 이름> <마운트할 디렉토리 경로>```  
+ex) ```sudo mount -t vboxsf workspace /home/vagrant/workspace```  
+
+이후 ```/etc/rc.local```이나 ```chkconfig```등을 활용하면 VM boot 시에  
+자동으로 공유 폴더를 마운트 하게 할 수 있습니다.  
+
