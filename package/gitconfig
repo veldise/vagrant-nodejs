@@ -24,4 +24,5 @@
     status = auto
     branch = auto
 [core]
-    autocrlf = true
+    autocrlf = input
+    eol = lf

@@ -31,7 +31,7 @@ else
 	rm -rf node-$INSTALL_VER*
 
 	echo "- Node packages Install Start"
-	$npm install -g async underscore colors express@3.5.0 jade stylus winston protobuf websocket connect multiparty request socket.io &> npmInstall.log
+	$npm install -g async underscore colors express@3.5.0 jade stylus@0.43.1 winston protobuf websocket connect multiparty request socket.io &> npmInstall.log
 
 	profile=/etc/profile.d/nodejs.sh
 	echo "export NODE_PATH=/usr/local/bin/node:/usr/local/lib/node_modules:" > $profile
