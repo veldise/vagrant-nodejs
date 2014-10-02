@@ -36,7 +36,7 @@ else
 	# for express
 	$npm install express@3.5.0 jade less-middleware multiparty connect cookie &> npmInstall.log
 	# for web-platform
-	$npm install winston mongoose monk protobuf request socket.io websocket &> npmInstall.log
+	$npm install winston mongoose protobuf request socket.io websocket &> npmInstall.log
 
 	profile=/etc/profile.d/nodejs.sh
 	echo "export NODE_PATH=/usr/local/bin/node:/usr/local/lib/node_modules:" > $profile
