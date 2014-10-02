@@ -4,7 +4,7 @@ echo -e "\n- Protobuf Install Start\n"
 protoc=/usr/local/bin/protoc
 
 pb_ver=`$protoc --version`
-INSTALL_VER="2.5.0"
+INSTALL_VER="2.6.0"
 
 if [ "${pb_ver}" == "libprotoc "$INSTALL_VER ]; then
 	echo "alreay Protobuf v"$INSTALL_VER

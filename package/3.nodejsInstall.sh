@@ -5,7 +5,7 @@ node=/usr/local/bin/node
 npm=/usr/local/bin/npm
 
 node_ver=`$node -v`
-INSTALL_VER="v0.10.29"
+INSTALL_VER="v0.10.32"
 
 if [ "${node_ver}" == $INSTALL_VER ]; then
 	echo "alreay Node.js "$INSTALL_VER
@@ -31,7 +31,12 @@ else
 	rm -rf node-$INSTALL_VER*
 
 	echo "- Node packages Install Start"
-	$npm install -g async underscore colors express@3.5.0 jade stylus@0.43.1 winston protobuf websocket connect multiparty request socket.io &> npmInstall.log
+	# utilify
+	$npm install underscore async colors pm2 &> npmInstall.log
+	# for express
+	$npm install express@3.5.0 jade less-middleware multiparty connect cookie &> npmInstall.log
+	# for web-platform
+	$npm install winston mongoose monk protobuf request socket.io websocket &> npmInstall.log
 
 	profile=/etc/profile.d/nodejs.sh
 	echo "export NODE_PATH=/usr/local/bin/node:/usr/local/lib/node_modules:" > $profile
