@@ -30,6 +30,9 @@ else
 	cd ..
 	rm -rf node-$INSTALL_VER*
 
+	# sudo: npm: command not found
+	sudo ln -s /usr/local/bin/npm /usr/bin/npm
+
 	echo "- Node packages Install Start"
 	# utilify
 	$npm install -g underscore async colors pm2 &> npmInstall.log
