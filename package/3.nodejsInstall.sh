@@ -32,11 +32,11 @@ else
 
 	echo "- Node packages Install Start"
 	# utilify
-	$npm install underscore async colors pm2 &> npmInstall.log
+	$npm install -g underscore async colors pm2 &> npmInstall.log
 	# for express
-	$npm install express@3.5.0 jade less-middleware multiparty connect cookie &> npmInstall.log
+	$npm install -g express@3.5.0 jade less-middleware multiparty connect cookie &> npmInstall.log
 	# for web-platform
-	$npm install winston mongoose protobuf request socket.io websocket &> npmInstall.log
+	$npm install -g winston mongoose protobuf request socket.io websocket &> npmInstall.log
 
 	profile=/etc/profile.d/nodejs.sh
 	echo "export NODE_PATH=/usr/local/bin/node:/usr/local/lib/node_modules:" > $profile
