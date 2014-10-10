@@ -2,7 +2,7 @@
 echo -e "\n- Utilities or Library Install Start\n"
 
 echo "linux package install......"
-yum -y install wget make gcc gcc-c++ bzip2-devel openssl-devel git &> library.log
+yum -y install wget make gcc gcc-c++ bzip2-devel openssl-devel git vim &> library.log
 
 echo -e "\n- Utilities or Library Install End\n"
 

@@ -15,7 +15,7 @@ else
 		cp /vagrant/tgz/node-$INSTALL_VER.tar.gz .
 	else
 		echo "download......"
-		wget http://nodejs.org/dist/$INSTALL_VER/node-$INSTALL_VER.tar.gz
+		wget http://nodejs.org/dist/$INSTALL_VER/node-$INSTALL_VER.tar.gz &> node_download.log
 	fi
 
 	tar xfzp node-$INSTALL_VER.tar.gz
@@ -35,7 +35,7 @@ else
 
 	echo "- Node packages Install Start"
 	# utilify
-	$npm install -g underscore async colors pm2 &> npmInstall.log
+	$npm install -g underscore async colors pm2 grunt grunt-cli requirejs &> npmInstall.log
 	# for express
 	$npm install -g express@3.5.0 jade less less-middleware multiparty connect cookie &> npmInstall.log
 	# for web-platform

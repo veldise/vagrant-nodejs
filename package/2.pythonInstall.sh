@@ -18,7 +18,7 @@ else
 		cp /vagrant/tgz/Python-$INSTALL_VER.tgz .
 	else
 		echo "download......"
-		wget http://www.python.org/ftp/python/$INSTALL_VER/Python-$INSTALL_VER.tgz
+		wget http://www.python.org/ftp/python/$INSTALL_VER/Python-$INSTALL_VER.tgz &> python_download.log
 	fi
 
 	tar xfzp Python-$INSTALL_VER.tgz

@@ -14,7 +14,7 @@ else
 		cp /vagrant/tgz/protobuf-$INSTALL_VER.tar.gz .
 	else
 		echo "download......"
-		wget https://protobuf.googlecode.com/files/protobuf-$INSTALL_VER.tar.gz
+		wget https://protobuf.googlecode.com/svn/rc/protobuf-$INSTALL_VER.tar.gz &> protobuf_download.log
 	fi
 
 	tar xfzp protobuf-$INSTALL_VER.tar.gz

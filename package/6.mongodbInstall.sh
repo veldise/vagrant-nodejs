@@ -14,7 +14,7 @@ else
 		cp /vagrant/tgz/mongodb-linux-x86_64-$INSTALL_VER.tgz .
 	else
 		echo "download......"
-		wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-$INSTALL_VER.tgz
+		wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-$INSTALL_VER.tgz &> mongodb_download.log
 	fi
 
 	tar xfzp mongodb-linux-x86_64-$INSTALL_VER.tgz
