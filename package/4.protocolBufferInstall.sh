@@ -4,7 +4,7 @@ echo -e "\n- Protobuf Install Start\n"
 protoc=/usr/local/bin/protoc
 
 pb_ver=`$protoc --version`
-INSTALL_VER="2.6.0"
+INSTALL_VER="2.6.1"
 
 if [ "${pb_ver}" == "libprotoc "$INSTALL_VER ]; then
 	echo "alreay Protobuf v"$INSTALL_VER
@@ -14,7 +14,7 @@ else
 		cp /vagrant/tgz/protobuf-$INSTALL_VER.tar.gz .
 	else
 		echo "download......"
-		wget https://protobuf.googlecode.com/svn/rc/protobuf-$INSTALL_VER.tar.gz &> protobuf_download.log
+		wget https://github.com/google/protobuf/releases/download/v$INSTALL_VER/protobuf-$INSTALL_VER.tar.gz &> protobuf_download.log
 	fi
 
 	tar xfzp protobuf-$INSTALL_VER.tar.gz

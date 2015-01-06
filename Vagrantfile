@@ -15,7 +15,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.network "forwarded_port", guest: 8080, host: 8080
     config.vm.network "forwarded_port", guest: 3030, host: 3030
     # network adapter
-    config.vm.network "public_network"
+    # config.vm.network "public_network"
     config.vm.network "private_network", ip: "192.168.33.10"
 
     # VM configure

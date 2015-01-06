@@ -4,34 +4,30 @@ echo -e "\n- Node.js Install Start\n"
 node=/usr/local/bin/node
 npm=/usr/local/bin/npm
 
-node_ver=`$node -v`
-INSTALL_VER="v0.10.32"
+if [ -f $node ]; then
+	node_ver=`$node -v`
+else
+	node_ver=""
+fi
+INSTALL_VER="v0.10.35"
 
 if [ "${node_ver}" == $INSTALL_VER ]; then
 	echo "alreay Node.js "$INSTALL_VER
 else
-	if [ -f /vagrant/tgz/node-$INSTALL_VER.tar.gz ]; then
+	if [ -f /vagrant/tgz/node-$INSTALL_VER-linux-x64.tar.gz ]; then
 		echo "copy file......"
-		cp /vagrant/tgz/node-$INSTALL_VER.tar.gz .
+		cp /vagrant/tgz/node-$INSTALL_VER-linux-x64.tar.gz .
 	else
 		echo "download......"
-		wget http://nodejs.org/dist/$INSTALL_VER/node-$INSTALL_VER.tar.gz &> node_download.log
+		wget http://nodejs.org/dist/$INSTALL_VER/node-$INSTALL_VER-linux-x64.tar.gz &> node_download.log
 	fi
 
-	tar xfzp node-$INSTALL_VER.tar.gz
-	cd node-$INSTALL_VER
-
-	echo "configure......"
-	./configure &> ../node_configure.log
-	echo "make......"
-	make &> ../node_make.log
-	echo "make install......"
-	make install &> ../node_makeinstall.log
-	cd ..
+	# binary install
+	CURR_PATH=`pwd`
+	cd /usr/local && tar --strip-components 1 -xzf $CURR_PATH/node-$INSTALL_VER-linux-x64.tar.gz
+	cd $CURR_PATH
+	# remove install files
 	rm -rf node-$INSTALL_VER*
-
-	# sudo: npm: command not found
-	sudo ln -s /usr/local/bin/npm /usr/bin/npm
 
 	echo "- Node packages Install Start"
 	# utilify

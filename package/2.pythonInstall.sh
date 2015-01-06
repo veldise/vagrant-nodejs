@@ -8,7 +8,7 @@ fi
 
 # python -V (stderr)
 py_ver=`$python -c 'import sys; print "%s.%s.%s" % sys.version_info[:3]'`
-INSTALL_VER="2.7.8"
+INSTALL_VER="2.7.9"
 
 if [ "${py_ver}" == $INSTALL_VER ]; then
 	echo 'alreay Python v'$INSTALL_VER
@@ -18,7 +18,7 @@ else
 		cp /vagrant/tgz/Python-$INSTALL_VER.tgz .
 	else
 		echo "download......"
-		wget http://www.python.org/ftp/python/$INSTALL_VER/Python-$INSTALL_VER.tgz &> python_download.log
+		wget http://www.python.org/ftp/python/2.7.9/Python-2.7.9.tgz &> python_download.log
 	fi
 
 	tar xfzp Python-$INSTALL_VER.tgz
