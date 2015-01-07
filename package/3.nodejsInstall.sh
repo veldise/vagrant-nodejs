@@ -24,8 +24,18 @@ else
 
 	# binary install
 	CURR_PATH=`pwd`
-	cd /usr/local && tar --strip-components 1 -xzf $CURR_PATH/node-$INSTALL_VER-linux-x64.tar.gz
+	cd /usr/local
+	tar --strip-components 1 -xzf $CURR_PATH/node-$INSTALL_VER-linux-x64.tar.gz
 	cd $CURR_PATH
+
+	# intall node_modules (created: 2015-01-07)
+	if [ -f /vagrant/tgz/node_modules.tgz ]; then
+		echo "unpack node_modules......"
+		cd /usr/local/lib
+		tar -xzf /vagrant/tgz/node_modules.tgz
+		cd $CURR_PATH
+	fi
+
 	# remove install files
 	rm -rf node-$INSTALL_VER*
 
