@@ -1,5 +1,5 @@
 #!/bin/sh
-echo -e "\n- Protobuf Install Start\n"
+echo -e "\n- Protobuf Install Start: "`date +%H:%M:%S`"\n"
 
 protoc=/usr/local/bin/protoc
 
@@ -30,4 +30,4 @@ else
 	rm -rf protobuf-$INSTALL_VER*
 fi
 
-echo -e "\n- Protobuf Install End\n"
+echo -e "\n- Protobuf Install End: "`date +%H:%M:%S`"\n"

@@ -1,5 +1,5 @@
 #!/bin/sh
-echo -e "\n- Python Install Start\n"
+echo -e "\n- Python Install Start: "`date +%H:%M:%S`"\n"
 
 python=/usr/local/bin/python
 if [ ! -f $python ]; then
@@ -34,4 +34,4 @@ else
 	rm -rf Python-$INSTALL_VER*
 fi
 
-echo -e "\n- Python Install End\n"
+echo -e "\n- Python Install End: "`date +%H:%M:%S`"\n"

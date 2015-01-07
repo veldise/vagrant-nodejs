@@ -1,5 +1,5 @@
 #!/bin/sh
-echo -e "\n- MongoDB Install Start\n"
+echo -e "\n- MongoDB Install Start: "`date +%H:%M:%S`"\n"
 
 vagrant=/home/vagrant 
 
@@ -38,4 +38,4 @@ else
 	rm mongodbCreateUser.js
 fi
 
-echo -e "\n- MongoDB Install End\n"
+echo -e "\n- MongoDB Install End: "`date +%H:%M:%S`"\n"

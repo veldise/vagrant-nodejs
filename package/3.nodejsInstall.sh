@@ -1,5 +1,5 @@
 #!/bin/sh
-echo -e "\n- Node.js Install Start\n"
+echo -e "\n- Node.js Install Start: "`date +%H:%M:%S`"\n"
 
 node=/usr/local/bin/node
 npm=/usr/local/bin/npm
@@ -52,4 +52,4 @@ else
 	source $profile
 fi
 
-echo -e "\n- Node.js Install End\n"
+echo -e "\n- Node.js Install End: "`date +%H:%M:%S`"\n"
