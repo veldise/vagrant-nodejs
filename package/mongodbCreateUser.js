@@ -1,5 +1,6 @@
 // select db
 use admin
+
 // create admin
 db.createUser({
     user: "admin",
@@ -9,8 +10,13 @@ db.createUser({
         db: "admin"
     }]
 });
+
+// auth admin
+db.auth("admin", "admin.");
+
 // select db
 use mobigen
+
 // create monbigen
 db.createUser({
     user: "mobigen",
