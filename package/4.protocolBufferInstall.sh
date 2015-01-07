@@ -3,7 +3,11 @@ echo -e "\n- Protobuf Install Start: "`date +%H:%M:%S`"\n"
 
 protoc=/usr/local/bin/protoc
 
-pb_ver=`$protoc --version`
+if [ -f $protoc ]; then
+	pb_ver=`$protoc --version`
+else
+	pb_ver=""
+fi
 INSTALL_VER="2.6.1"
 
 if [ "${pb_ver}" == "libprotoc "$INSTALL_VER ]; then

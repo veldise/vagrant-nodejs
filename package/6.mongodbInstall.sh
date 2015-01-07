@@ -1,19 +1,22 @@
 #!/bin/sh
 echo -e "\n- MongoDB Install Start: "`date +%H:%M:%S`"\n"
 
-vagrant=/home/vagrant 
+mongo=/usr/local/bin/mongo
 
-mongo_ver=`mongo --version | grep -v git`
+if [ -f $mongo ]; then
+	mongo_ver=`$mongo --version`
+else
+	mongo_ver=""
+fi
 INSTALL_VER="2.6.6"
 
 if [ "${mongo_ver}" == "MongoDB shell version: "$INSTALL_VER ]; then
-	echo "alreay MongoDB "$INSTALL_VER
+	echo "alreay MongoDB: "$INSTALL_VER
 else
-	echo "Yum Install MongoDB"
+	echo "install(yum) MongoDB..."
 
 	# copy files
 	cp /vagrant/package/mongodb.repo /etc/yum.repos.d/mongodb.repo
-	cp /vagrant/package/mongodbCreateUser.js mongodbCreateUser.js
 
 	yum install -y mongodb-org-$INSTALL_VER &> mongodb_install.log
 
@@ -21,7 +24,7 @@ else
 	service mongod start
 
 	# create user
-	mongo < mongodbCreateUser.js
+	mongo < /vagrant/package/mongodbCreateUser.js
 
 	# stop DB & modify config
 	service mongod stop
@@ -33,9 +36,6 @@ else
 
 	# register chkconfig (Launch DB when VM booting)
 	chkconfig --levels 235 mongod on
-
-	# remove files
-	rm mongodbCreateUser.js
 fi
 
 echo -e "\n- MongoDB Install End: "`date +%H:%M:%S`"\n"
