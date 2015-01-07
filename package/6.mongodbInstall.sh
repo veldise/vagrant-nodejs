@@ -4,7 +4,7 @@ echo -e "\n- MongoDB Install Start\n"
 vagrant=/home/vagrant 
 
 mongo_ver=`mongo --version | grep -v git`
-INSTALL_VER="2.6.4"
+INSTALL_VER="2.6.6"
 
 if [ "${mongo_ver}" == "MongoDB shell version: "$INSTALL_VER ]; then
 	echo "alreay MongoDB "$INSTALL_VER
