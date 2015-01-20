@@ -1,13 +1,11 @@
 #!/bin/sh
 echo -e "\n- Node.js Install Start: "`date +%H:%M:%S`"\n"
 
-node=/usr/local/bin/node
-npm=/usr/local/bin/npm
+node=`type -p node`
+npm=`type -p npm`
 
-if [ -f $node ]; then
+if [ $node ]; then
 	node_ver=`$node -v`
-else
-	node_ver=""
 fi
 INSTALL_VER="v0.10.35"
 

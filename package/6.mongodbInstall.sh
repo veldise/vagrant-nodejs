@@ -1,12 +1,10 @@
 #!/bin/sh
 echo -e "\n- MongoDB Install Start: "`date +%H:%M:%S`"\n"
 
-mongo=/usr/local/bin/mongo
+mongo=`type -p mongo`
 
-if [ -f $mongo ]; then
+if [ $mongo ]; then
 	mongo_ver=`$mongo --version`
-else
-	mongo_ver=""
 fi
 INSTALL_VER="2.6.6"
 
@@ -28,8 +26,7 @@ else
 
 	# stop DB & modify config
 	service mongod stop
-	sed 's/#auth=true/auth=true/' /etc/mongod.conf >> /etc/mongod.conf.tmp
-	mv /etc/mongod.conf.tmp /etc/mongod.conf
+	sed -i 's/#auth=true/auth=true/' /etc/mongod.conf
 
 	# restart DB
 	/etc/init.d/mongod start

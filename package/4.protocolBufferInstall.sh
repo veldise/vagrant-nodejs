@@ -1,12 +1,10 @@
 #!/bin/sh
 echo -e "\n- Protobuf Install Start: "`date +%H:%M:%S`"\n"
 
-protoc=/usr/local/bin/protoc
+protoc=`type -p protoc`
 
-if [ -f $protoc ]; then
+if [ $protoc ]; then
 	pb_ver=`$protoc --version`
-else
-	pb_ver=""
 fi
 INSTALL_VER="2.6.1"
 

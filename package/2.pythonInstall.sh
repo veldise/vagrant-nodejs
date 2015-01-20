@@ -1,16 +1,15 @@
 #!/bin/sh
 echo -e "\n- Python Install Start: "`date +%H:%M:%S`"\n"
 
-python=/usr/local/bin/python
-if [ ! -f $python ]; then
-	python=python
-fi
+python=`type -p python`
 
-# python -V (stderr)
-py_ver=`$python -c 'import sys; print "%s.%s.%s" % sys.version_info[:3]'`
+if [ $python ]; then
+	# stderr -> stdout
+	py_ver=`$python --version 2>&1`
+fi
 INSTALL_VER="2.7.9"
 
-if [ "${py_ver}" == $INSTALL_VER ]; then
+if [ "${py_ver}" == "Python "$INSTALL_VER ]; then
 	echo 'alreay Python v'$INSTALL_VER
 else
 	if [ -f /vagrant/tgz/Python-$INSTALL_VER.tgz ]; then
