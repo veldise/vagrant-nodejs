@@ -32,7 +32,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision "shell", path: "./package/1.library.sh"
     config.vm.provision "shell", path: "./package/2.pythonInstall.sh"
     config.vm.provision "shell", path: "./package/3.nodejsInstall.sh"
-    config.vm.provision "shell", path: "./package/4.protocolBufferInstall.sh"
+    # config.vm.provision "shell", path: "./package/4.protocolBufferInstall.sh"
     config.vm.provision "shell", path: "./package/5.iptables.sh"
     config.vm.provision "shell", path: "./package/6.mongodbInstall.sh"
 end
