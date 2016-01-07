@@ -7,7 +7,7 @@ npm=`type -p npm`
 if [ $node ]; then
 	node_ver=`$node -v`
 fi
-INSTALL_VER="v0.10.35"
+INSTALL_VER="v4.2.4"
 
 if [ "${node_ver}" == $INSTALL_VER ]; then
 	echo "alreay Node.js "$INSTALL_VER
@@ -39,11 +39,11 @@ else
 
 	echo "- Node packages Install Start"
 	# utilify
-	$npm install -g underscore async colors pm2 grunt grunt-cli requirejs &> npmInstall.log
+	$npm install -g underscore lodash async colors pm2 grunt grunt-cli requirejs &> npmInstall.log
 	# for express
-	$npm install -g express@3.5.0 jade less less-middleware multiparty connect cookie &> npmInstall.log
+	$npm install -g express@~3.5.0 jade less less-middleware multiparty connect cookie &> npmInstall.log
 	# for web-platform
-	$npm install -g winston mongoose protobuf request socket.io websocket &> npmInstall.log
+	$npm install -g winston mongoose protobuf request socket.io@~1.2.1 websocket &> npmInstall.log
 
 	profile=/etc/profile.d/nodejs.sh
 	echo "export NODE_PATH=/usr/local/bin/node:/usr/local/lib/node_modules:" > $profile
